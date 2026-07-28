@@ -2,7 +2,7 @@ import React from 'react'
 
 const Logo = () => {
   return (
-    <div>Logo</div>
+    <img src="https://bytegrad.com/course-assets/react-nextjs/dots.png"/>
   )
 }
 

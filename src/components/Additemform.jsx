@@ -1,9 +1,13 @@
-import React from 'react'
+import Button from "./Button"
 
 const Additemform = () => {
   return (
-    <div>Additemform</div>
-  )
+    <form action="">
+      <h2>Add item</h2>
+      <input type="text" />
+      <Button text='Add to list'/>
+    </form>
+    )
 }
 
 export default Additemform
