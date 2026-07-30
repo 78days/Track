@@ -1,13 +1,27 @@
-import Button from "./Button"
+import { useState } from "react";
+import Button from "./Button";
 
-const Additemform = () => {
+const Additemform = ({ onAddItem }) => {
+  const [newItem, setNewItem] = useState("");
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    if (!newItem.trim()) return;
+    onAddItem(newItem.trim());
+    setNewItem("");
+  }
+
   return (
-    <form action="">
+    <form onSubmit={handleSubmit}>
       <h2>Add item</h2>
-      <input type="text" />
-      <Button text='Add to list'/>
+      <input
+        type="text"
+        value={newItem}
+        onChange={(e) => setNewItem(e.target.value)}
+      />
+      <Button text="Add to list" />
     </form>
-    )
-}
+  );
+};
 
-export default Additemform
+export default Additemform;
