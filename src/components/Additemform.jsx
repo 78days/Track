@@ -1,10 +1,12 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import Button from "./Button";
 
 const Additemform = ({ onAddItem }) => {
   const [newItem, setNewItem] = useState("");
+const inputRef = useRef();
 
   function handleSubmit(e) {
+    
     e.preventDefault();
     if (!newItem.trim()) return;
     onAddItem(newItem.trim());
@@ -18,6 +20,8 @@ const Additemform = ({ onAddItem }) => {
         type="text"
         value={newItem}
         onChange={(e) => setNewItem(e.target.value)}
+        placeholder="Item name"
+        ref={inputRef}
       />
       <Button text="Add to list" />
     </form>
