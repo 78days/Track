@@ -1,10 +1,11 @@
-const Button = ({ type, text }) => {
-    return (
-      // biome-ignore lint/a11y/useButtonType: <explanation>
-<button className={`btn ${type === "secondary" ? "btn--secondary" : ""}`}>
-        {text}
-      </button>
-    );
-  };
-  
-  export default Button;
+export default function Button({ onClick, buttonType, children }) {
+  return (
+    <button
+      type={onClick ? "button" : "submit"}
+      onClick={onClick}
+      className={`btn ${buttonType === "secondary" ? "btn--secondary" : ""}`}
+    >
+      {children}
+    </button>
+  );
+}

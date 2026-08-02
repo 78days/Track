@@ -1,8 +1,3 @@
-
-const Backgroundheading = () => {
-  return (
-    <div>Backgroundheading</div>
-  )
+export default function Backgroundheading() {
+  return <h1>Trekbag</h1>;
 }
-
-export default Backgroundheading

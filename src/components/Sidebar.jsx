@@ -1,13 +1,14 @@
+import { useItemsStore } from "../stores/itemsStore";
 import Additemform from "./Additemform";
 import Buttongroup from "./Buttongroup";
 
-const Sidebar = ({ onAddItem }) => {
+export default function Sidebar() {
+  const addItem = useItemsStore((state) => state.addItem);
+
   return (
     <div className="sidebar">
-      <Additemform onAddItem={onAddItem} />
+      <Additemform onAddItem={addItem} />
       <Buttongroup />
     </div>
   );
-};
-
-export default Sidebar;
+}

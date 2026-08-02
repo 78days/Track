@@ -1,14 +1,17 @@
-export const items = [{
-    id : 0,
-    name : "socs",
-    packed : true
-  }, {
-    id : 1,
-    name : "soc1",
-    packed : true
-  }, {
-    id : 2,
-    name : "soc2",
-    packed : true
-  }]
-  
+export const initialItems = [
+  {
+    id: 1,
+    name: "good mood",
+    packed: true,
+  },
+  {
+    id: 2,
+    name: "passport",
+    packed: false,
+  },
+  {
+    id: 3,
+    name: "phone charger",
+    packed: false,
+  },
+];
