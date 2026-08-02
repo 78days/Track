@@ -2,7 +2,14 @@
 
 A trip packing checklist built with React. Add items, mark them packed, sort the list, and keep everything in sync via browser storage.
 
+## Live demo
 
+- **Production:** [https://track-ten-indol.vercel.app](https://track-ten-indol.vercel.app)
+- Deployed on [Vercel](https://vercel.com) as project `moirai2/track`
+
+> Note: linking the GitHub repo (`78days/Track`) failed until a GitHub Login Connection is added in Vercel account settings. The CLI deploy itself succeeded.
+
+## Features
 
 - Add, toggle, and delete packing items
 - Bulk actions: mark all complete / incomplete, reset to defaults, remove all
@@ -20,6 +27,7 @@ A trip packing checklist built with React. Add items, mark them packed, sort the
 | Zustand | Global state |
 | react-select | Sorting dropdown |
 | CSS | Layout & styling |
+| Vercel | Hosting / deployment |
 
 ## Getting started
 
@@ -36,6 +44,13 @@ Open the URL Vite prints (usually `http://localhost:5173`).
 npm run build    # production build → dist/
 npm run preview  # preview the production build
 npm run lint     # ESLint
+```
+
+### Deploy
+
+```bash
+vercel          # preview / first deploy
+vercel --prod   # overwrite production
 ```
 
 ## Project structure
