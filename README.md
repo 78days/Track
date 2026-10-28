@@ -1,33 +1,44 @@
 # Trekbag
 
-A trip packing checklist built with React. Add items, mark them packed, sort the list, and keep everything in sync via browser storage.
+Trekbag is a lightweight travel packing checklist app built with React. It helps you plan what to pack before a trip, track what is already packed, and keep the list saved in the browser so you can come back later without losing progress.
+
+Whether you are preparing for a weekend getaway or a longer trip, Trekbag keeps your packing list organized and easy to manage.
 
 ## Live demo
 
-- **Production:** [https://track-ten-indol.vercel.app](https://track-ten-indol.vercel.app)
-- Deployed on [Vercel](https://vercel.com) as project `moirai2/track`
-
-> Note: linking the GitHub repo (`78days/Track`) failed until a GitHub Login Connection is added in Vercel account settings. The CLI deploy itself succeeded.
+- Production: https://track-ten-indol.vercel.app
+- Hosted on Vercel as project `moirai2/track`
 
 ## Features
 
-- Add, toggle, and delete packing items
-- Bulk actions: mark all complete / incomplete, reset to defaults, remove all
-- Sort by default, packed, or unpacked (`react-select`)
-- Empty-state UI when the list is cleared
-- Live packed / total counter in the header
-- Persistent state with Zustand `persist` → `localStorage`
+- Add new packing items to your trip list
+- Mark items as packed or unpacked
+- Remove individual items
+- Bulk actions for all items
+- Reset to the default starter list
+- Sort items by default, packed, or unpacked
+- Empty state when the list is cleared
+- Persistent storage using Zustand + `localStorage`
+- Simple, responsive interface built for quick trip planning
 
 ## Tech stack
 
-| Tool | Role |
-| --- | --- |
-| React 19 | UI |
-| Vite | Dev server & build |
-| Zustand | Global state |
-| react-select | Sorting dropdown |
-| CSS | Layout & styling |
-| Vercel | Hosting / deployment |
+- React 19
+- Vite
+- Zustand
+- react-select
+- CSS
+- Vercel
+
+## Project purpose
+
+This project was built to practice:
+
+- state management with Zustand
+- client-side persistence
+- UI state derived from application data
+- list interactions and filtering
+- building a clean single-page app for real-world utility
 
 ## Getting started
 
@@ -36,59 +47,62 @@ npm install
 npm run dev
 ```
 
-Open the URL Vite prints (usually `http://localhost:5173`).
+Then open the local URL shown in the terminal (typically `http://localhost:5173`).
 
-### Other scripts
+## Available scripts
 
 ```bash
-npm run build    # production build → dist/
-npm run preview  # preview the production build
-npm run lint     # ESLint
+npm run dev     # start the Vite dev server
+npm run build   # create a production build in dist/
+npm run preview # preview the production build
+npm run lint    # run ESLint checks
 ```
 
-### Deploy
+## Deployment
 
 ```bash
-vercel          # preview / first deploy
-vercel --prod   # overwrite production
+vercel
+vercel --prod
 ```
 
 ## Project structure
 
-```
+```text
 src/
-├── components/       # UI pieces (form, list, sidebar, header, …)
+├── components/
+│   ├── Additemform.jsx
+│   ├── App.jsx
+│   ├── Backgroundheading.jsx
+│   ├── Button.jsx
+│   ├── Buttongroup.jsx
+│   ├── Counter.jsx
+│   ├── EmptyView.jsx
+│   ├── Footer.jsx
+│   ├── Header.jsx
+│   ├── Itemlist.jsx
+│   ├── Logo.jsx
+│   └── Sidebar.jsx
 ├── stores/
-│   └── itemsStore.js # Zustand store + localStorage persistence
-├── constants.js      # Initial packing items
-├── index.css         # Global styles
-└── main.jsx          # App entry
+│   └── itemsStore.js
+├── constants.js
+├── index.css
+├── main.jsx
+└── font.txt
 ```
 
 ## State management
 
-All item logic lives in `src/stores/itemsStore.js`:
+The app uses a Zustand store to manage the packing list:
 
-| Action | Description |
-| --- | --- |
-| `addItem` | Append a new unpacked item |
-| `toggleItem` | Flip packed status |
-| `deleteItem` | Remove one item |
-| `markAllAsComplete` / `markAllAsIncomplete` | Bulk packed status |
-| `resetToInitial` | Restore default starter items |
-| `removeAllItems` | Clear the list |
+- `addItem` adds a new item
+- `toggleItem` changes packed state
+- `deleteItem` removes a single item
+- `removeAllItems` clears the list
+- `resetToInitial` restores the default set of starter items
+- `markAllAsComplete` and `markAllAsIncomplete` bulk-update the list
 
-Components subscribe with selectors, e.g. `useItemsStore((s) => s.items)`, so only relevant UI re-renders.
-
-Persisted key in `localStorage`: `items`.
-
-## What I practiced
-
-- Lifting shared UI concerns into a global store instead of prop drilling
-- Derived UI (packed count) from store data
-- Conditional rendering (empty state, sort controls)
-- Client-side persistence without a backend
+The `items` state is persisted in `localStorage` using Zustand middleware.
 
 ## License
 
-Personal / educational use.
+For personal and educational use.
